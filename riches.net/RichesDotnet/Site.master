@@ -1,0 +1,276 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Site.master.cs" Inherits="SiteMaster" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head runat="server">
+    <title>RWI - Riches Wealth International Home Page</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Type" content="text/html" />
+
+<link rel="stylesheet" type="text/css" href="~/Styles/rwi-2.css" />
+<link rel="shortcut icon" href="~/Images/favicon.ico" />
+    <asp:ContentPlaceHolder ID="HeadContent" runat="server">
+    </asp:ContentPlaceHolder>
+    </head>
+
+<body>
+<form id="Form1" runat="server">
+<br />
+<table cellpadding="0" cellspacing="0" id="content" border="0" align="center">
+	<tr valign="mtop">
+		<td colspan="2">
+			<table cellpadding="0" cellspacing="0" border="0">
+				<tr valign="middle">
+					<td id="utilities" align="right">
+                    <asp:Menu ID="Menu1" runat="server" Orientation="Horizontal">
+                    <Items>
+                        <asp:MenuItem Text="Find Locations |"  
+                            NavigateUrl="~/Anonymous/FindLocations.aspx"/> 
+                        <asp:MenuItem Text=" Contact Us |"></asp:MenuItem>
+                        <asp:MenuItem Text=" Site Map"></asp:MenuItem>
+                    </Items>
+                    </asp:Menu>
+                    </td>
+
+                                    <div class="loginDisplay">
+                                   
+                <asp:LoginView ID="LoginView1" runat="server" EnableViewState="false">
+                    <AnonymousTemplate>
+                        [ <a href="~/Account/Login.aspx" ID="HeadLoginStatus" runat="server">Log In</a> ]
+                    </AnonymousTemplate>
+                    <LoggedInTemplate>
+                        Welcome <span class="bold"><asp:LoginName ID="HeadLoginName" runat="server" /></span>!
+                        [ <asp:LoginStatus ID="HeadLoginStatus" runat="server" LogoutAction="Redirect" LogoutText="Log Out" LogoutPageUrl="~/"/> ]
+                    </LoggedInTemplate>
+                </asp:LoginView>
+               
+            </div>
+
+				</tr>
+			</table>
+		</td>
+	</tr>
+	<tr valign="top">
+
+		<td align="left"><asp:Image ID="HeaderRWI" runat="server" ImageUrl="~/Images/header.gif" /></td>
+	</tr>
+	<tr valign="top" id="menubar">
+		<td colspan="2">
+			<table cellpadding="0" cellspacing="0" border="0" align="right">
+				<tr valign="top">
+					<td><a href="." title="Personal Banking Services">Personal</a></td>
+					<td><a href="." title="Small Business. Serving businesses with up to $20 million in annual revenue">Small Business</a></td>
+
+					<td><a href="." title="Commercial. Serving businesses with over $20 million in annual revenue">Commercial</a></td>
+					<td><a href="../About.aspx" title="Information About RWi">About RWi</a></td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td>
+
+			<table cellpadding="0" cellspacing="0" border="0">
+				<tr valign="top">
+					<td>
+						<table cellpadding="0" cellspacing="0" border="0" align="left" id="left">
+							<tr valign="top">
+								<td>
+									<table cellpadding="0" cellspacing="0" border="0" id="onlinebanking">
+									<tr valign="top">
+										<td id="signon_title">RWi Online Banking</td>
+
+									</tr>
+                                    <tr>
+                                        <td>
+                                            
+                                        <asp:ContentPlaceHolder ID="MainContent" runat="server"/>        
+                                        
+                                            
+                                        </td>
+                                    </tr>
+									<tr valign="top">
+										<td>
+                                        <asp:Image ID="Horizontal" align="middle" runat="server" ImageUrl="~/Images/horizontall.gif" />
+											
+										</td>
+									</tr>
+									<tr valign="top">
+										<td>
+											<h2>Account Services</h2>
+
+											<p id="services"> <a href=".">Visit our Tax Center</a><br />
+												<a href=".">Get Mobile Banking</a><br />
+												<a href=".">Try Online Statements</a><br />
+												<a href=".">&gt;&gt;&nbsp;More</a></p>
+										</td>
+									</tr>
+
+									<tr valign="top">
+										<td>
+                                        <asp:Image ID="Image2" align="middle" runat="server" ImageUrl="~/Images/horizontall.gif" />
+										</td>
+									</tr>
+									<tr valign="top">
+										<td>
+											<h2>Find ATMs/Locations</h2>
+
+                                            <asp:TextBox ID="SearchTextBox" runat="server" Text="Enter Zip code or City & State"></asp:TextBox>
+                                            <asp:Button ID="SearchButton" runat="server" Text="Go" 
+                                                onclick="SearchButton_Click" />
+												&nbsp;
+										</td>
+									</tr>
+									<tr valign="top">
+										<td>
+											<asp:Image ID="Image3" align="middle" runat="server" ImageUrl="~/Images/horizontall.gif" />
+
+										</td>
+									</tr>
+									<tr valign="top">
+										<td>
+											<h2>Fraud Prevention &amp; <br/>
+												Online Security</h2>
+											<p id="services"> <a href=".">Report Suspicious Email</a><br />
+
+												<a href=".">Fraud &amp; Identity Theft</a><br />
+												<a href=".">RWi Security Plus&trade;</a><br />
+												<a href=".">Our Online Security Guarantee</a></p>
+										</td>
+									</tr>
+							</table>
+
+								</td>
+							</tr>
+							<tr valign="top">
+								<td>
+								<table cellpadding="0" cellspacing="0" border="0" id="bg_image">
+									<tr valign="top">
+										<td>
+                                        <asp:Image ID="Image4" width="248"  runat="server" ImageUrl="~/Images/accounts_bg_home.gif" />
+										</td>
+
+									</tr>
+								</table>
+							</td>
+							</tr>
+							<tr valign="top">
+								<td><br /></td>
+							</tr>
+						</table>
+					</td>
+
+					<td>
+						<table cellpadding="0" cellspacing="0" border="0" align="right" id="right">
+							<tr valign="top">
+								<td colspan="3">
+                                <asp:Image ID="ImagePromo" runat="server" ImageUrl="~/Images/promo1.jpg" />
+								</td>
+							</tr>
+
+							<tr valign="top" class="links">
+								<!-- 1st row -->
+								<td width="33%" ><h2 class="row1title">&nbsp;&nbsp;Banking</h2>
+									<a href=".">Checking</a><br />
+									<a href="." title ="Start Saving Today">Savings &amp; CDs</a><br />
+									<a href="." title ="Click here for Rewards">Credit Cards</a><br />
+
+									<a href="." title ="Enroll for Free!">Online Banking</a><br />
+									<a href="." title ="Get Started for Free">Bill Pay</a><br />
+									<a href="." class="last" title="More Banking Accounts and Services"><strong>&gt;&gt;</strong>&nbsp;More</a>
+								</td>
+								<td width="33%"><h2 class="row1title">&nbsp;&nbsp;Loans</h2>
+									<a href="." title ="Sign up to Get Rate Email Alerts">Home Mortgage</a><br />
+
+									<a href="." title ="Learn about Home Equity">Home Equity Loans</a><br />
+									<a href="." title ="Personal Loan Rates and Payments">Personal Loans</a><br />
+									<a href="." title ="Automobile Loan Rates and Payments">Auto Loans</a><br />
+									<a href="." title ="Get a Student Loan">Student Loans</a><br />
+									<a href="." class="last" title="More loans and credit options" ><strong>&gt;&gt;</strong>&nbsp;More</a>
+								</td>
+
+								<td width="33%"><h2 class="row1title" class="inv">&nbsp;&nbsp;Investing</h2>
+									<a href="." title ="Open an Account Today">Mutual Funds</a><br />
+									<a href="." title ="Find Out About Commission-Free Trades">Brokerage</a><br />
+									<a href="." title ="Start Saving for Your Future Now!">Retirement Planning</a><br />
+									<a href="." title ="Protect Your Family">Insurance</a><br />
+									<a href="." title ="Your own Private Bank">Private Banking</a><br />
+
+									<a href="." class="last" title="More investing and insurance"><strong>&gt;&gt;</strong>&nbsp;More</a>
+								</td>
+							</tr>
+							<tr valign="top" class="links">
+								<!-- 2st row -->
+								<td width="33%"><h2 class="row2title">&nbsp;&nbsp;Open an Account</h2>
+									<a href="." title ="Open a Checking Account Today">Checking Account</a><br />
+
+									<a href="." title ="Open a Saving Account Today">Savings Account</a><br />
+									<a href="." title ="Apply For a Credit Card">Credit Cards</a><br />
+									<a href="." title ="Open a CD Account Today">CD's</a><br />
+									<a href="." title ="Open Money Market Account">Money Market Account</a><br />
+									<a href="." class="last" title="Other Types of Accounts"><strong>&gt;&gt;</strong>&nbsp;More</a>
+								</td>
+
+								<td width="34%"><h2 class="row2title">&nbsp;&nbsp;Check on Today's Rates</h2>
+									<a href="." title ="">Mortgage</a><br />
+									<a href="." title ="">Home Equity</a><br />
+									<a href="." title ="">Credit Cards</a><br />
+									<a href="." title ="">Persoal Loans</a><br />
+									<a href="." title ="">Auto Loans</a><br />
+
+									<a href="." class="last" title="Get Other Rates" ><strong>&gt;&gt;</strong>&nbsp;More</a>
+								</td>
+								<td width="33%"><h2 class="row2title" class="inv">&nbsp;&nbsp;Other Services</h2>
+									<a href="." title ="">Retirement Center</a><br />
+									<a href="." title ="">Buying a Home</a><br />
+									<a href="." title ="">College Planning</a><br />
+
+									<a href="." title ="">Consolidating Debt</a><br />
+									<a href="." title ="">Investment Tools</a><br />
+									<a href="." class="last" title=""><strong>&gt;&gt;</strong>&nbsp;More</a>
+								</td>
+							</tr>
+							<tr valign="top" class="links">
+								<!-- 3rd row -->
+
+								<td><br />
+                                <asp:Image ID="ImageSmallAd3" runat="server" ImageUrl="~/Images/small-ad3.gif" />
+								</td>
+								<td><br />
+                                    <asp:Image ID="ImageSmallAd1" style="margin-left:.25em;" runat="server" ImageUrl="~/Images/small-ad1.gif" />
+								</td>
+								<td><br />
+                                <asp:Image ID="ImageSmallAd2" runat="server" ImageUrl="~/Images/small-ad2.gif" />
+								</td>
+
+							</tr>
+							<tr valign="top" class="footer">
+								<td colspan="3">
+								<br />
+									<p id="footerNav"> <a href="../About.aspx">About RWi</a> | <a href="../Anonymous/Careers.aspx">Careers</a> | <a href="../Anonymous/Privacy.aspx?privacy_statement=http://www.hp.com/country/us/en/privacy.html">Privacy, Security &amp; Legal</a> | <a href=".">Report Email Fraud</a> | <a href=".">Diversity &amp; Accessibility</a>  <br /><a href=".">Important Notice on Trading in Fast Markets</a> | <a href=".">Online Access Agreement (3/06/2008) </a> | <a href=".">Sitemap</a></p>
+
+								</td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+			</table>
+			<table cellpadding="0" cellspacing="0" border="0" align="center">
+				<tr valign="top">
+					<td>
+
+						<p id="copy"><asp:Image ID="Image5"  runat="server" style="padding:0 5px 0 15px" 
+                                ImageUrl="~/Images/al_ehl_house_gen.gif" /><strong style="color:#000">Equal Housing Lender</strong><br />RWi, Member FDIC. &copy; 2008 RWI. All rights reserved.           ImageUrl="~/Images/al_ehl_house_gen.gif" /><strong style="color:#000">Equal Housing Lender</strong><br />RWi, Member FDIC. &copy; 2008 RWI. All rights reserved. </p>
+					</td>
+				</tr>
+			</table>
+			<br />
+		</td>
+	</tr>
+
+</table>
+</body>
+</html>
+</form>
+</body>
+</html>

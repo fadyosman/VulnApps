@@ -1,0 +1,138 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="AdminMaster.master.cs" Inherits="Admin_AdminMaster" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head id="Head1" runat="server">
+<title>RWI - Riches Wealth International </title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Type" content="text/html" />
+<link rel="stylesheet" type="text/css" href="~/Styles/details.css" />
+    <asp:ContentPlaceHolder id="HeadContentPlaceHolder" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+
+
+<body>
+<form runat="server">
+<br />
+<table cellpadding="0" cellspacing="0" id="content" border="0" align="center">
+<tr valign="top">
+    <td colspan="2">
+        <table cellpadding="0" cellspacing="0" border="0" width="100%" id="utilities">
+            <tr valign="middle">
+                <td id="Td1" align="right">
+                     <asp:Menu ID="Menu2" runat="server" Orientation="Horizontal">
+                    <Items>
+                        <asp:MenuItem Text="Back Home |"  
+                            NavigateUrl="~/"/> 
+                        <asp:MenuItem Text="Find Locations |"  
+                            NavigateUrl="~/Anonymous/FindLocations.aspx"/> 
+                        <asp:MenuItem Text=" Contact Us |"></asp:MenuItem>
+                        <asp:MenuItem Text=" Site Map"></asp:MenuItem>
+                    </Items>
+                    </asp:Menu></td>
+
+                    <td>
+                    <asp:LoginView ID="LoginView1" runat="server" EnableViewState="false">
+                    <AnonymousTemplate>
+                        [ <a href="~/Account/Login.aspx" ID="HeadLoginStatus" runat="server">Log In</a> ]
+                    </AnonymousTemplate>
+                    <LoggedInTemplate>
+                        Welcome <span class="bold"><asp:LoginName ID="HeadLoginName" runat="server" /></span>!
+                        [ <asp:LoginStatus ID="HeadLoginStatus" runat="server" LogoutAction="Redirect" LogoutText="Log Out" LogoutPageUrl="~/"/> ]
+                    </LoggedInTemplate>
+                </asp:LoginView>&nbsp;&nbsp;&nbsp;&nbsp;
+                </td>
+            </tr>
+        </table>
+    </td>
+</tr>
+<tr valign="top">
+    <td align="left">
+    <asp:Image ID="Logo" runat="server" ImageUrl="~/Images/rwi_50.gif" />
+    </td>
+</tr>
+
+    
+<tr valign="top" id="menubar">
+    <td>
+        <table cellpadding="0" cellspacing="0" border="0" align="right">
+            <tr valign="top">
+                <td>&nbsp;
+                <asp:Menu ID="Menu1" runat="server" Orientation="Horizontal" Font-Size="Small">
+                    <Items>
+                        <asp:MenuItem Text="Account" Value="Account" 
+                            NavigateUrl="~/Users/AccountSummary.aspx"/>                         
+                        <asp:MenuItem Text="Transfer Funds" Value="Transfer Funds" 
+                            NavigateUrl="~/Users/Transfer.aspx"></asp:MenuItem>
+                        <asp:MenuItem Text="Write a check" Value="Write a check" 
+                            NavigateUrl="~/Users/Check.aspx"></asp:MenuItem>
+                        <asp:MenuItem Text="Messages" Value="Messages" 
+                            NavigateUrl="~/Users/Messages.aspx"></asp:MenuItem>
+                        <asp:MenuItem Text="Change Password" Value="Change Password" 
+                            NavigateUrl="~/Account/ChangePassword.aspx"></asp:MenuItem>
+                        <asp:MenuItem Text="Picture" Value="Picture" 
+                            NavigateUrl="~/Users/ProfilePicture.aspx"></asp:MenuItem>
+                        <asp:MenuItem NavigateUrl="~/Admin/Admin.aspx" Text="Admin Messaging" 
+                            Value="Admin Messaging"></asp:MenuItem>
+                        <asp:MenuItem NavigateUrl="~/Admin/Newsletter.aspx" Text="Mass Mailing" 
+                            Value="Mass Mailing"></asp:MenuItem>
+                        <asp:MenuItem NavigateUrl="~/Users/AdminControlPage.aspx" Text="Admin Control" 
+                            Value="Admin Control"></asp:MenuItem>
+                    </Items>
+                    </asp:Menu>
+                    </td>
+            </tr>
+        </table>
+    </td>
+</tr>
+    <tr valign="top">
+        <td align="left">
+            <table cellpadding="0" cellspacing="0" id="pageTitle" border="0" width="100%">
+                <tr valign="top">
+                    <td colspan="2" id="summary"></td>
+                </tr>
+               
+            </table>
+        </td>
+    </tr>
+
+    <tr>
+		<td align="center">
+        <asp:ContentPlaceHolder id="ContentPlaceHolder" runat="server"/>
+        </td>
+        
+    </tr>
+
+
+    <tr>
+		<td align="center">
+			<span>
+                <asp:Label ID="NameLabel" runat="server" Text="Label"></asp:Label>/
+            SSN 
+                <asp:Label ID="SSNLabel" runat="server" Text="Label"></asp:Label></span>
+		</td>
+	</tr>
+<tr>
+    <td align="center">
+        <div><a href=""><asp:Image ID="Image1" runat="server" ImageUrl="~/Images/tiny-ad1.gif" /></a></div>
+    </td>
+</tr>
+<tr>
+    <td>
+        <br />
+        <table cellpadding="0" cellspacing="0" border="0" align="center" id="footer">
+            <tr valign="top">
+                <td>
+                    <p id="copy">RWi, Member FDIC. &copy; 2008 RWI. All rights reserved.<asp:Image ID="Image2" runat="server" ImageUrl="~/Images/al_ehl_house_gen.gif" /><strong style="color:#000">Equal Housing Lender</strong></p>
+                </td>
+            </tr>
+        </table>
+    </td>
+</tr>
+</table>
+</form>
+</body>
+</html>

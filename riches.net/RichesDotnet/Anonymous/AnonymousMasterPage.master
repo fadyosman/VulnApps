@@ -1,0 +1,97 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="AnonymousMasterPage.master.cs" Inherits="Anonymous_AnonymousMasterPage" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head id="Head1" runat="server">
+    <title>RWI - Riches Wealth International Home Page</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Type" content="text/html" />
+
+<link rel="stylesheet" type="text/css" href="~/Styles/rwi-2.css" />
+<link rel="shortcut icon" href="~/Images/favicon.ico" />
+    <asp:ContentPlaceHolder ID="HeadContent" runat="server">
+    </asp:ContentPlaceHolder>
+    </head>
+
+<body>
+    <form id="form1" runat="server">
+<br />
+<table cellpadding="0" cellspacing="0" id="content" border="0" align="center">
+	<tr valign="mtop">
+		<td colspan="2">
+			<table cellpadding="0" cellspacing="0" border="0">
+				<tr valign="middle">
+    				<td id="utilities" align="right">
+                     <asp:Menu ID="Menu1" runat="server" Orientation="Horizontal">
+                    <Items>
+                        <asp:MenuItem Text="Back Home |"  
+                            NavigateUrl="~/"/> 
+                        <asp:MenuItem Text="Find Locations |"  
+                            NavigateUrl="~/Anonymous/FindLocations.aspx"/> 
+                        <asp:MenuItem Text=" Contact Us |"></asp:MenuItem>
+                        <asp:MenuItem Text=" Site Map"></asp:MenuItem>
+                    </Items>
+                    </asp:Menu></td>
+
+                    <div class="loginDisplay">
+                                   
+                <asp:LoginView ID="LoginView1" runat="server" EnableViewState="false">
+                    <AnonymousTemplate>
+                        [ <a href="~/Account/Login.aspx" ID="HeadLoginStatus" runat="server">Log In</a> ]
+                    </AnonymousTemplate>
+                    <LoggedInTemplate>
+                        Welcome <span class="bold"><asp:LoginName ID="HeadLoginName" runat="server" /></span>!
+                        [ <asp:LoginStatus ID="HeadLoginStatus" runat="server" LogoutAction="Redirect" LogoutText="Log Out" LogoutPageUrl="~/"/> ]
+                    </LoggedInTemplate>
+                </asp:LoginView>
+               
+            </div>
+
+				</tr>
+			</table>
+		</td>
+	</tr>
+	<tr valign="top">
+
+		<td align="left"><asp:Image ID="HeaderRWI" runat="server" ImageUrl="~/Images/header.gif" /></td>
+	</tr>
+	<tr valign="top" id="menubar">
+		<td colspan="2">
+			<table cellpadding="0" cellspacing="0" border="0" align="right">
+				<tr valign="top">
+					<td><a href="." title="Personal Banking Services">Personal</a></td>
+					<td><a href="." title="Small Business. Serving businesses with up to $20 million in annual revenue">Small Business</a></td>
+
+					<td><a href="." title="Commercial. Serving businesses with over $20 million in annual revenue">Commercial</a></td>
+					<td><a href="." title="Information About RWi">About RWi</a></td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+
+    <tr><td align="center">
+        <asp:ContentPlaceHolder id="MainContent" runat="server">
+        
+        </asp:ContentPlaceHolder>
+    </td></tr>
+<tr valign="top" class="footer">
+								<td colspan="3">
+								<br />
+									<p id="footerNav"><a href=".">About RWi</a> |  <a href="../Anonymous/Careers.aspx">Careers</a> | <a href="../Anonymous/Privacy.aspx?privacy_statement=http://www.hp.com/country/us/en/privacy.html">Privacy, Security &amp; Legal</a> | <a href=".">Report Email Fraud</a> | <a href=".">Diversity &amp; Accessibility</a>  <br /><a href=".">Important Notice on Trading in Fast Markets</a> | <a href=".">Online Access Agreement (3/06/2008) </a> | <a href=".">Sitemap</a></p>
+
+								</td>
+							</tr>
+				<tr valign="top">
+					<td>
+
+						<p id="copy"><br />RWi, Member FDIC. &copy; 2008 RWI. All rights reserved. <asp:Image ID="Image5"  runat="server" style="padding:0 5px 0 15px" 
+                                ImageUrl="~/Images/al_ehl_house_gen.gif" /><strong style="color:#000">Equal Housing Lender</strong></p>
+					</td>
+				</tr>
+			</table>
+			<br />
+
+</form>
+</body>
+</html>
+

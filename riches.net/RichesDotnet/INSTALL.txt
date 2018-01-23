@@ -1,0 +1,27 @@
+Requirements
+============
+DotNet 4.0
+
+Installation
+============
+Copy RichesDotnet to c:\inetpub\wwwroot\
+
+--> UI Driven
+Start IIS Manager
+Application Pool: (Create a new one)
+	- .NET Framework: 4.0
+	- Managed Pipeline Mode: Integrated
+	- Identity: Your EMEA\madou (http://support.microsoft.com/kb/2002980)
+RichesDotnet right click: Convert to Application, set the Application Pool to the one you've just created
+	- make the AppData and AppData\*.sdf files writeable
+	
+--> Command Line Driven
+cd c:\Windows\System32\inetsrv
+appcmd add apppool /name:FortifyHPRichesDotnetDemo /managedRuntimeVersion:v4.0  /managedPipelineMode:Integrated
+appcmd add app /site.name:"Default Web Site" /path:/RichesDotnettest2 /physicalPath:c:\inetpub\wwwroot\RichesDotnet /applicationpool:FortifyHPRichesDotnetDemo
+	- make the AppData and AppData\*.sdf files writeable
+
+TODO: Get the demo app to work with a app pool which Identity is ApplicationPoolIdentity (For now, it only works when the App pool is the win username/password)
+OR GET THIS TO WORK WITH THE DEMO:
+appcmd set config /section:applicationPools /[name='FortifyHPRichesDotnetDemo'].processModel.identityType:SpecificUser /[name='FortifyHPRichesDotnetDemo'].processModel.userName:EMEA\madou /[name='FortifyHPRichesDotnetDemo'].processModel.password:blah
+
